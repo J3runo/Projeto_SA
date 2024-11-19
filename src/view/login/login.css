@@ -1,0 +1,64 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #f0f0f0;
+}
+
+main {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    padding: 40px;
+    width: 50%;
+    margin: 200px auto;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px rgba(8, 8, 8, 0.3);
+}
+
+.login .cadastro{
+    width: 50%;
+}
+
+.login{
+    border-right: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.grupo-campos{
+    display: flex;
+    flex-direction: column;
+   padding-right: 16px;
+}
+input{
+    margin-bottom: 5px;
+}
+button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    width: 50px;
+    border-radius: 3px;
+    box-shadow: 10px 10px 15px rgba(8, 8, 8, 0.3);
+    background-color: transparent;
+    cursor: pointer;
+    transition: transform 1s;
+    min-width: 100px;
+}
+button:hover{
+    transform: scale(1.1);
+    background-color: green;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+h1{
+    margin-bottom: 30px;
+}
