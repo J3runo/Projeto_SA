@@ -18,7 +18,6 @@ export default class VeiculosRepository {
 
         }
 
-
     }
 
     async save(veiculo: veiculos) {
@@ -42,7 +41,7 @@ export default class VeiculosRepository {
 
         try {
             this.connection.connect()
-            const sql = 'SELECT * FROM veiculo where esta_ativo = $1'
+            const sql = 'SELECT * FROM veiculos where esta_ativo = $1'
             const result = await this.connection.query(sql,[true])
             if (result.rows.length > 0) {
                 return result.rows;
@@ -64,7 +63,7 @@ export default class VeiculosRepository {
 
         try {
             this.connection.connect()
-            const sql = 'SELECT * FROM veiculo WHERE id = $1'
+            const sql = 'SELECT * FROM veiculos WHERE id = $1'
             const resultId = await this.connection.query(sql,[id])
             return resultId.rows;
         } catch (error) {

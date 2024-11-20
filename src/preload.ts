@@ -1,10 +1,10 @@
 import { contextBridge, ipcRenderer } from "electron";
-import veiculo from "./enty/veiculos";
 
+import veiculos from './enty/veiculos';
 
 
 contextBridge.exposeInMainWorld('bancoAPI',{
-    createVeiculo: async (veiculo:veiculo) => await ipcRenderer.invoke('create', veiculo),
+    createVeiculo: async (veiculo:veiculos) => await ipcRenderer.invoke('create', veiculo),
     findAll: async()=> await ipcRenderer.invoke('findAll'),
     findById: async (id:string)=> await ipcRenderer.invoke('findById', id),
     deletarVeiculo: async (id:string) => await ipcRenderer.invoke('deletarVeiculo', id),

@@ -9,9 +9,9 @@ export default class veiculos{
     
 
 
-constructor(chassi:string,marca:string,cor:string){
+constructor(chassi:string,marca:string,cor:string, id?:undefined){
 
-   
+    this.id = id
     this.chassi = chassi
     this.marca = marca
     this.cor = cor

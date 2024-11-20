@@ -3,7 +3,6 @@ import { app, BrowserWindow, ipcMain } from 'electron';
 import UsuarioRepository from './repository/UsuarioRepository';
 import Usuario from './enty/usuarios';
 import { compare, hash } from 'bcrypt';
-import veiculos from './enty/veiculos';
 import VeiculosRepository from './repository/VeiculosRepository';
 
 
@@ -27,7 +26,7 @@ const createWindow = (): void => {
     },
   });
 
-  mainWindow.loadURL('http://localhost:3000/login');
+  mainWindow.loadURL('http://localhost:3000/main_window');
 
   mainWindow.webContents.openDevTools();
 };
