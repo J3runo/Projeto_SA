@@ -9,10 +9,10 @@ export default class VeiculosRepository {
         if (!this.connection) {
             this.connection = new Client({
                 user: 'postgres',
+                port: 5432,
                 host: 'localhost',
                 database: 'projeto_sa',
                 password: 'senai',
-                port: 5432,
 
             })
 
@@ -37,6 +37,7 @@ export default class VeiculosRepository {
         }
 
     }
+    
     async findAll() {
 
         try {

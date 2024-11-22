@@ -1,17 +1,17 @@
 
-export default class Usuario{
+export default class usuarios{
 
         private id:string | undefined; 
         private nome:string
-        private cpf:string
+        private data_nascimento:string
         private email:string
         private senha:string
 
 
-    constructor(nome:string,cpf:string, email:string, senha:string, id?: string ){
+    constructor(nome:string,data_nascimento:string, email:string, senha:string, id?: string ){
         this.id = id
         this.nome = nome
-        this.cpf = cpf
+        this.data_nascimento = data_nascimento
         this.email = email
         this.senha = senha
         
@@ -26,8 +26,8 @@ export default class Usuario{
         return this.nome
     }
 
-    public getCpf(){
-        return this.cpf
+    public getData(){
+        return this.data_nascimento
     }
 
     public getEmail(){

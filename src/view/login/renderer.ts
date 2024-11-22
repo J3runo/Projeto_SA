@@ -1,7 +1,7 @@
 
 import usuarioRepository from "src/repository/UsuarioRepository";
 import "./login.css"
-import { hash } from "bcrypt";
+
 
 document.getElementById("cadastrar").addEventListener("click", async (event: MouseEvent) => {
     event.preventDefault();
@@ -15,7 +15,8 @@ document.getElementById("cadastrar").addEventListener("click", async (event: Mou
     if(password.value !== passwordConfirmation.value){
         return;
     }
-
+    console.log(nome.value,dataNascimento.value,email.value,password.value,passwordConfirmation.value)
+    
     const usuarioExiste = await (window as any).bancoAPI.findByEmail(email.value);
     if(usuarioExiste?.id){
     console.log('USUARIO JA EXISTE!!!')
@@ -26,10 +27,9 @@ document.getElementById("cadastrar").addEventListener("click", async (event: Mou
         name:nome.value,
         data_nascimento:new Date(dataNascimento.value) ,
         email:email.value,
-        senha: password.value,
+        senha: password.value
     };
    await (window as any).bancoAPI.createUsuario(usuario);
-    
     
 })
 
@@ -46,11 +46,10 @@ document.getElementById('Acessar').addEventListener('click', async (event:MouseE
     }
 
     const passwordConfirmation ={
-        password: password.value,
-        password_Hash:usuario.senha_hash
+        password: password.value
     }
 
-     const validPassword = await (window as any).authAPI.hash(passwordConfirmation)
+     const validPassword = await (window as any)(passwordConfirmation)
     if(!validPassword){
         console.log('CREDENCIAIS INCORRETAS...')
         return;

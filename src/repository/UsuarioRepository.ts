@@ -1,5 +1,5 @@
 import { Client } from "pg";
-import Usuario from "src/enty/usuarios";
+import usuarios from "src/enty/usuarios";
 
 export default class UsuarioRepository {
     private connection: Client
@@ -16,20 +16,20 @@ export default class UsuarioRepository {
         }
     }
 
-    async save(usuario: Usuario){
+    async save(usuarios: usuarios){
         try {
-            console.log(usuario.getSenha)
+            
             this.connection.connect()
-            const sql = "INSERT INTO usuario (nome, cpf, email, senha, ) VALUES ($1, $2, $3, $4)";
+            const sql = 'INSERT INTO usuarios (nome, data_nascimento, email, senha ) VALUES ($1, $2, $3, $4)';
             const values = [
                 
-                usuario.getNome(),
-                usuario.getCpf(),
-                usuario.getEmail(),
-                usuario.getSenha(),
+                usuarios.getNome(),
+                usuarios.getData(),
+                usuarios.getEmail(),
+                usuarios.getSenha(),
                
             ];
-    console.log(usuario.getSenha)
+    console.log(usuarios.getSenha)
 
             await this.connection.query(sql, values);
         } catch (error) {
@@ -43,7 +43,7 @@ export default class UsuarioRepository {
     async findByEmail(email: string){
         try {
             this.connection.connect();
-            const sql = "SELECT * FROM usuarios WHERE email = $3";
+            const sql = "SELECT * FROM usuarios WHERE email = $1";
             const result = await this.connection.query(sql, [email]);
             return result.rows[0];
         } catch (error) {

@@ -15,7 +15,7 @@ document.getElementById("btn")?.addEventListener("click", async (event: MouseEve
   const novoVeiculo = new veiculos(chassiInput.value, marcaInput.value, corInput.value)
   console.log(chassiInput.value,marcaInput.value,corInput.value)
 
-  
+  console.log(chassiInput.value,marcaInput.value,corInput.value)
   listaVeiculos.push(novoVeiculo);
   
   (window as any).bancoAPI.createVeiculo(novoVeiculo)
@@ -23,8 +23,8 @@ document.getElementById("btn")?.addEventListener("click", async (event: MouseEve
  
   
    chassiInput.value = "";
-  marcaInput.value = "";
-  corInput.value = "";
+   marcaInput.value = "";
+   corInput.value = "";
   
   
   window.onload = async () => {
