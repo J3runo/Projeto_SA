@@ -8,11 +8,11 @@ export default class VeiculosRepository {
     constructor() {
         if (!this.connection) {
             this.connection = new Client({
-                user: 'postgres',
-                port: 5432,
                 host: 'localhost',
-                database: 'projeto_sa',
-                password: 'senai',
+                port: 5432,
+                database: 'Projeto_SA',
+                user: 'postgres',
+                password: '425102',
 
             })
 

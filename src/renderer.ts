@@ -37,9 +37,15 @@ document.getElementById("btn")?.addEventListener("click", async (event: MouseEve
   }
 }
   ) 
-  // render()
-    //   render()
-    // }
+
+  document.getElementById('btn-voltar')?.addEventListener("click", async (event: MouseEvent) => {
+    event.preventDefault();
+  
+    (window as any).navigateAPI.irPaginaLogin()
+  
+  })
+
+
 
 // function render() {
 

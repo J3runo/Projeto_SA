@@ -43,13 +43,20 @@ const config: ForgeConfig = {
           },
           {
             html:'./src/view/login/login.html',
-            js:'./src/view/login/renderer.ts',
+            js:'./src/view/login/rendererLogin.ts',
             name: 'login',
             preload:{
               js: './src/preload.ts',
             },
           },
-        
+          {
+            html:'./src/view/login/cadastro.html',
+            js:'./src/view/login/rendererCadastro.ts',
+            name: 'cadastro',
+            preload:{
+              js: './src/preload.ts',
+            },
+          },
         ],
       },
     }),

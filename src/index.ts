@@ -1,9 +1,9 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
-
 import UsuarioRepository from './repository/UsuarioRepository';
 import Usuario from './enty/usuarios';
 import VeiculosRepository from './repository/VeiculosRepository';
 import veiculos from './enty/veiculos';
+
 
 
 
@@ -26,7 +26,7 @@ const createWindow = (): void => {
     },
   });
 
-  mainWindow.loadURL('http://localhost:3000/produtos');
+  mainWindow.loadURL('http://localhost:3000/login');
 
   mainWindow.webContents.openDevTools();
 };
@@ -74,10 +74,14 @@ ipcMain.handle('findByEmail', async (_: any, email: string) => {
   return await new UsuarioRepository().findByEmail(email);
 })
 
-// ipcMain.handle('hash_password',async (_:any,credentials:any) =>{
-//   const {password, password_Hash } = credentials;
-//   return await compare (password,password_Hash);
-// })
+ipcMain.handle('findBySenha', async (_:any, senha:any)=>{ 
+  const {senhaEntrada, senhaBanco} = senha
+
+  // compara as senhas
+  const isMatch = senhaEntrada === senhaBanco;
+  return isMatch; // Retorna true se forem iguais
+});
+
 
 ipcMain.on('change-screen', (_:any, id:string)=>{
 mainWindow.loadURL(`http://localhost:3000/produtos`)
@@ -88,3 +92,10 @@ ipcMain.on('change-screen-home', ()=>{
   mainWindow.loadURL('http://localhost:3000/main_window')
 })
 
+ipcMain.on('paginaCadastro', ()=>{
+  mainWindow.loadURL('http://localhost:3000/cadastro')
+})
+
+ipcMain.on('paginaLogin', ()=>{
+  mainWindow.loadURL('http://localhost:3000/login')
+})

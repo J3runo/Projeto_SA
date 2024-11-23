@@ -5,11 +5,14 @@
 }
 
 body{
-    background-color: #e2e2e2;
+    background-color:#e2e2e2;
 }
 
+#btn-voltar{
+    cursor: pointer;
+    color: blue;
+}
 main {
-    
     display: flex;
     flex-direction: row;
     gap: 16px;
@@ -21,24 +24,20 @@ main {
     box-shadow: 10px 10px 15px rgba(8, 8, 8, 0.3);
 }
 
-#btn-cadastro{
+.login .cadastro{
+    width: 50%;
+    border-right: 2px solid black;
     display: flex;
+    flex-direction: column;
+}
 
-    justify-content: end;
-    align-items: center;
-    
-}
-#btn-cadastre-se{
-    cursor: pointer;
-    color: blue;
-}
 .grupo-campos{
     display: flex;
     flex-direction: column;
     padding-right: 16px;
 }
 input{
-    margin-bottom: 5px;
+    margin-bottom: 8px;
 }
 button{
     display: flex;
@@ -55,7 +54,7 @@ button{
 }
 button:hover{
     transform: scale(1.1);
-    background-color: #94a1aa;
+    background-color:  #94a1aa;
     border: 1px solid black;
     border-radius: 4px;
 }
