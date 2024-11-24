@@ -28,7 +28,7 @@ const createWindow = (): void => {
 
   mainWindow.loadURL('http://localhost:3000/login');
 
-  mainWindow.webContents.openDevTools();
+  //mainWindow.webContents.openDevTools();
 };
 
 
@@ -103,6 +103,6 @@ ipcMain.on('paginaQualidade', ()=>{
   mainWindow.loadURL('http://localhost:3000/qualidade')
 })
 
-// ipcMain.on('paginaEstoque', ()=>{
-//   mainWindow.loadURL('http://localhost:3000/login')
-// })
+ipcMain.on('paginaEstoque', ()=>{
+  mainWindow.loadURL('http://localhost:3000/estoque')
+})

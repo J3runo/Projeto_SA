@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Estoque</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Área principal -->
+        <main class="main-content">
+            <h1>Cadastro de Estoque</h1>
+
+            <form class="stock-form">
+                <fieldset>
+                    <legend>Informações do Item</legend>
+
+                    <label for="item-name">Nome do Item:</label>
+                    <select id="item-name" required>
+                        <option value="" disabled selected>Selecione</option>
+                        <option value="chassi">Chassi</option>
+                        <option value="motor">Motor</option>
+                        <option value="transmissao">Transmissão</option>
+                        <option value="freios">Freios</option>
+                        <option value="pneus">Pneus</option>
+                        <option value="rodas">Rodas</option>
+                        <option value="cor">Cor</option>
+                    </select>
+
+                    <label for="item-quantity">Quantidade:</label>
+                    <input type="number" id="item-quantity" placeholder="Digite a quantidade" required>
+
+                    <label for="item-description">Descrição:</label>
+                    <textarea id="item-description" rows="4" placeholder="Digite uma descrição (opcional)"></textarea>
+                </fieldset>
+
+                <div class="button-group">
+                    <button type="submit" class="btn save">Salvar</button>
+                    <button type="reset" class="btn reset">Limpar</button>
+                    <button type="click" id="pagina_inicial">Pagina Inicial</button>
+                </div>
+            </form>
+        </main>
+    </div>
+</body>
+
+</html>

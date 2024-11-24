@@ -65,6 +65,14 @@ const config: ForgeConfig = {
               js: './src/preload.ts',
             },
           },
+          {
+            html:'./src/view/login/views/estoque.html',
+            js:'./src/view/login/views/rendererEstoque.ts',
+            name: 'estoque',
+            preload:{
+              js: './src/preload.ts',
+            },
+          },
         ],
       },
     }),

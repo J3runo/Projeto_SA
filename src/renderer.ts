@@ -59,3 +59,12 @@ document.getElementById("btn")?.addEventListener("click", async (event: MouseEve
   
   })
 
+  
+document.getElementById('Estoque').addEventListener("click", async  (event: MouseEvent)=> {
+  event.preventDefault();
+
+
+  
+  (window as any).navigateAPI.irPaginaEstoque()
+  
+})

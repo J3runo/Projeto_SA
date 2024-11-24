@@ -1,40 +1,55 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalhes do Veículo</title>
+    <title>Controle de Qualidade de Veículos</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <header>
-        <h1>Detalhes do Veículo</h1>
-        <nav>
-            <a href="index.html">Voltar à Lista</a>
-        </nav>
-    </header>
+    <div class="container">
+        <!-- Menu lateral -->
+        <aside class="sidebar">
+            <h2>Veículos</h2>
+            <ul class="vehicle-list">
+                <li id="pagina_inicial">Pagina Inicial</li>
+                <li>Veículo 1</li>
+                <li>Veículo 2</li>
+                <li>Veículo 3</li>
+                <li>Veículo 4</li>
+            </ul>
 
-    <main>
-        <section id="detalhes-veiculo">
-            <h2>Informações do Veículo</h2>
-            <p><strong>Modelo:</strong> <span id="modelo"></span></p>
-            <p><strong>Chassi:</strong> <span id="chassi"></span></p>
-            <p><strong>Motor:</strong> <span id="motor"></span></p>
-            <p><strong>Transmissão:</strong> <span id="transmissao"></span></p>
-            <p><strong>Freios:</strong> <span id="freios"></span></p>
-            <p><strong>Pneus:</strong> <span id="pneus"></span></p>
-            <p><strong>Rodas:</strong> <span id="rodas"></span></p>
-            <p><strong>Cor:</strong> <span id="cor"></span></p>
-        </section>
-    </main>
+        </aside>
 
-    <footer>
-        <p>&copy; 2024 Sistema de Inspeção de Veículos</p>
-    </footer>
+        <!-- Área principal -->
+        <main class="main-content">
+            <h1>Controle de Qualidade</h1>
+            <h2>Veículo Selecionado: <span id="vehicle-name">Nenhum</span></h2>
 
-    <script src="vehicle-detail.js"></script>
+            <form class="inspection-form">
+                <fieldset>
+                    <legend>Checklist de Componentes</legend>
+                    <label><input type="checkbox"> Chassi</label><br>
+                    <label><input type="checkbox"> Motor</label><br>
+                    <label><input type="checkbox"> Transmissão</label><br>
+                    <label><input type="checkbox"> Freios</label><br>
+                    <label><input type="checkbox"> Pneus</label><br>
+                    <label><input type="checkbox"> Rodas</label><br>
+                    <label><input type="checkbox"> Cor</label>
+                </fieldset>
+
+                <textarea placeholder="Observações" rows="5"></textarea>
+
+                <div class="button-group">
+                    <button type="button" class="btn save">Salvar Resultado</button>
+                    <button type="button" class="btn approve">Aprovar Veículo</button>
+                    <button type="button" class="btn reject">Rejeitar Veículo</button>
+                </div>
+            </form>
+        </main>
+    </div>
 </body>
 
 </html>

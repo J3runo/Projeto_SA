@@ -1,0 +1,74 @@
+/* Atualização de estilo para o cadastro de estoque */
+
+/* Sidebar ativa */
+.menu-list li {
+    padding: 10px 0;
+    cursor: pointer;
+    border-bottom: 1px solid #34495e;
+    color: #ecf0f1;
+}
+
+.menu-list li.active {
+    background-color: #34495e;
+    font-weight: bold;
+}
+
+/* Formulário de estoque */
+.stock-form {
+    margin-top: 20px;
+}
+
+.stock-form fieldset {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.stock-form legend {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.stock-form label {
+    display: block;
+    font-size: 16px;
+    margin: 10px 0 5px;
+}
+
+.stock-form select,
+.stock-form input,
+.stock-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #fff;
+}
+
+.btn.save {
+    background-color: #3498db;
+}
+
+.btn.reset {
+    background-color: #e74c3c;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
