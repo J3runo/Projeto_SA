@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Veículos</title>
+</head>
+
+<body>
+  <header>
+    <h1>Cadastro de Veículos</h1>
+    <nav>
+      <a id="pagina-inicial">Página Inicial</a>
+      <a href="#veiculos">Lista de Veículos</a>
+      <a href="#cadastro">Novo Veículo</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Lista de Veículos -->
+    <section id="veiculos">
+      <h2>Veículos Cadastrados</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Modelo</th>
+            <th>Chassi</th>
+            <th>Motor</th>
+            <th>Transmissão</th>
+            <th>Freios</th>
+            <th>Pneus</th>
+            <th>Rodas</th>
+            <th>Cor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Veículos adicionados aparecerão aqui -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Formulário para Cadastro de Veículos -->
+    <section id="cadastro">
+      <h2>Cadastrar Novo Veículo</h2>
+      <form id="formulario-cadastro">
+        <label for="modelo">Modelo:</label>
+        <select id="modelo" name="modelo" required>
+          <option value="" disabled selected>Selecione o modelo</option>
+          <option value="SUV">SUV</option>
+          <option value="Sedan">Sedan</option>
+          <option value="Hatch">Hatch</option>
+          <option value="Caminhão">Caminhão</option>
+        </select>
+
+        <label for="chassi">Chassi:</label>
+        <select id="chassi" name="chassi" required>
+          <option value="" disabled selected>Selecione o tipo de chassi</option>
+          <option value="Monobloco">Monobloco</option>
+          <option value="Estrutural">Estrutural</option>
+        </select>
+
+        <label for="motor">Motor:</label>
+        <select id="motor" name="motor" required>
+          <option value="" disabled selected>Selecione o tipo de motor</option>
+          <option value="1.0 Flex">1.0 Flex</option>
+          <option value="1.6 Flex">1.6 Flex</option>
+          <option value="2.0 Turbo">2.0 Turbo</option>
+          <option value="Elétrico">Elétrico</option>
+        </select>
+
+        <label for="transmissao">Transmissão:</label>
+        <select id="transmissao" name="transmissao" required>
+          <option value="" disabled selected>Selecione a transmissão</option>
+          <option value="Manual">Manual</option>
+          <option value="Automática">Automática</option>
+          <option value="CVT">CVT</option>
+        </select>
+
+        <label for="freios">Freios:</label>
+        <select id="freios" name="freios" required>
+          <option value="" disabled selected>Selecione o tipo de freios</option>
+          <option value="Disco">Disco</option>
+          <option value="Tambor">Tambor</option>
+        </select>
+
+        <label for="pneus">Pneus:</label>
+        <select id="pneus" name="pneus" required>
+          <option value="" disabled selected>Selecione os pneus</option>
+          <option value="175/65 R14">175/65 R14</option>
+          <option value="185/70 R15">185/70 R15</option>
+          <option value="205/55 R16">205/55 R16</option>
+        </select>
+
+        <label for="rodas">Rodas:</label>
+        <select id="rodas" name="rodas" required>
+          <option value="" disabled selected>Selecione as rodas</option>
+          <option value="Liga Leve">Liga Leve</option>
+          <option value="Aço">Aço</option>
+        </select>
+
+        <label for="cor">Cor:</label>
+        <select id="cor" name="cor" required>
+          <option value="" disabled selected>Selecione a cor</option>
+          <option value="Branco">Branco</option>
+          <option value="Preto">Preto</option>
+          <option value="Prata">Prata</option>
+          <option value="Vermelho">Vermelho</option>
+          <option value="Azul">Azul</option>
+        </select>
+
+        <button type="submit">Cadastrar Veículo</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Cadastro de Veículos</p>
+  </footer>
+
+
+</body>
+
+</html>

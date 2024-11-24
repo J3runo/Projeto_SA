@@ -15,9 +15,16 @@ contextBridge.exposeInMainWorld('bancoAPI',{
 })
 
 contextBridge.exposeInMainWorld('navigateAPI',{
-    irPaginaDetalhes:(id:string) => ipcRenderer.send('change-screen',id),
-    irPaginaHome:() => ipcRenderer.send('change-screen-home'),
+    irPaginaHome:() => ipcRenderer.send('pagina-home'),
     irPaginaCadastro:()=> ipcRenderer.send('paginaCadastro'),
     irPaginaLogin:()=> ipcRenderer.send('paginaLogin'),
+    irPaginaProducao:()=> ipcRenderer.send('paginaProducao'),
+    irPaginaQualidade:()=> ipcRenderer.send('paginaQualidade'),
+    irPaginaEstoque:()=> ipcRenderer.send('paginaEstoque'),
+
+
+
+
+
 })
 

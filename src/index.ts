@@ -83,12 +83,7 @@ ipcMain.handle('findBySenha', async (_:any, senha:any)=>{
 });
 
 
-ipcMain.on('change-screen', (_:any, id:string)=>{
-mainWindow.loadURL(`http://localhost:3000/produtos`)
-  
-})
-
-ipcMain.on('change-screen-home', ()=>{
+ipcMain.on('pagina-home', ()=>{
   mainWindow.loadURL('http://localhost:3000/main_window')
 })
 
@@ -99,3 +94,15 @@ ipcMain.on('paginaCadastro', ()=>{
 ipcMain.on('paginaLogin', ()=>{
   mainWindow.loadURL('http://localhost:3000/login')
 })
+
+ipcMain.on('paginaProducao', ()=>{
+  mainWindow.loadURL('http://localhost:3000/producao')
+})
+
+// ipcMain.on('paginaQualidade', ()=>{
+//   mainWindow.loadURL('http://localhost:3000/login')
+// })
+
+// ipcMain.on('paginaEstoque', ()=>{
+//   mainWindow.loadURL('http://localhost:3000/login')
+// })

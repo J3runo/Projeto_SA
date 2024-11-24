@@ -45,6 +45,18 @@ document.getElementById("btn")?.addEventListener("click", async (event: MouseEve
   
   })
 
+  document.getElementById('Producao')?.addEventListener("click", async (event: MouseEvent) => {
+    event.preventDefault();
+  
+    (window as any).navigateAPI.irPaginaProducao()
+  
+  })
+
+
+
+
+
+
 
 
 // function render() {
@@ -81,4 +93,3 @@ document.getElementById("btn")?.addEventListener("click", async (event: MouseEve
 
 // (window as any).deletarVeiculo = deletarVeiculo;
 // (window as any).irPaginaDetalhes = irPaginaDetalhes;
-

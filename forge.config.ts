@@ -34,14 +34,6 @@ const config: ForgeConfig = {
             },
           },
           {
-            html:'./src/produtos.html',
-            js:'./src/produtos.ts',
-            name: 'produtos',
-            preload:{
-              js: './src/preload.ts',
-            },
-          },
-          {
             html:'./src/view/login/login.html',
             js:'./src/view/login/rendererLogin.ts',
             name: 'login',
@@ -53,6 +45,14 @@ const config: ForgeConfig = {
             html:'./src/view/login/cadastro.html',
             js:'./src/view/login/rendererCadastro.ts',
             name: 'cadastro',
+            preload:{
+              js: './src/preload.ts',
+            },
+          },
+          {
+            html:'./src/view/login/views/producao.html',
+            js:'./src/view/login/views/rendererPro.ts',
+            name: 'producao',
             preload:{
               js: './src/preload.ts',
             },

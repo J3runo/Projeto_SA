@@ -1,4 +1,4 @@
-import "./cadastro"
+import "./cadastro.css"
 
 document.getElementById("cadastrar").addEventListener("click", async (event: MouseEvent) => {
     event.preventDefault();

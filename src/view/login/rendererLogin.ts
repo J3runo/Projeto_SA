@@ -1,5 +1,5 @@
 import usuarioRepository from "src/repository/UsuarioRepository";
-import "./login";
+import "./login.css";
 
 
 document.getElementById("Acessar").addEventListener("click", async (event: MouseEvent) => {

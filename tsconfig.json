@@ -15,5 +15,5 @@
       "*": ["*"]
     }
   },
-  "include": ["src/**/*", "veiculoRepository.ts"]
+  "include": ["src/**/*", "veiculoRepository.ts", "src/view/login/rendererPro.ts"]
 }
