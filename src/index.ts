@@ -99,9 +99,9 @@ ipcMain.on('paginaProducao', ()=>{
   mainWindow.loadURL('http://localhost:3000/producao')
 })
 
-// ipcMain.on('paginaQualidade', ()=>{
-//   mainWindow.loadURL('http://localhost:3000/login')
-// })
+ipcMain.on('paginaQualidade', ()=>{
+  mainWindow.loadURL('http://localhost:3000/qualidade')
+})
 
 // ipcMain.on('paginaEstoque', ()=>{
 //   mainWindow.loadURL('http://localhost:3000/login')

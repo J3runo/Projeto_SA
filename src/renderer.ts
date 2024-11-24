@@ -52,44 +52,10 @@ document.getElementById("btn")?.addEventListener("click", async (event: MouseEve
   
   })
 
+  document.getElementById('Qualidade')?.addEventListener("click", async (event: MouseEvent) => {
+    event.preventDefault();
 
-
-
-
-
-
-
-// function render() {
-
-//   var conteudo = document.getElementById("conteudo");
-//   conteudo.innerHTML = "";
-
-//   for (var i = 0; i < listaVeiculos.length; i++) {
-//     conteudo.innerHTML += `
-
-//          <strong>Chassi: ${listaVeiculos[i].getChassi()}</strong>
-//              <span>Marca: ${listaVeiculos[i].getMarca()}</span>
-//              <span>Cor: ${listaVeiculos[i].getCor()}</span>
-//              <span>id: ${listaVeiculos[i].getId()}</span>
-//         </div>
-            
-//      </div>`
-
-//   }
-// }
-// function deletarVeiculo(id:string){
-//  (window as any).bancoAPI.deletarVeiculo(id)
-
-//   listaVeiculos = listaVeiculos.filter(veiculos => veiculos.getId() !== id)
-//   render()
-// }
-
-// function irPaginaDetalhes(id:string){
-//   (window as any).bancoAPI.irPaginaDetalhes(id)
-//   (window as any).bancoAPI.renderDetalhes(id)
+    (window as any).navigateAPI.irPaginaQualidade()
   
-// }
+  })
 
-
-// (window as any).deletarVeiculo = deletarVeiculo;
-// (window as any).irPaginaDetalhes = irPaginaDetalhes;
