@@ -49,8 +49,8 @@ app.on('activate', () => {
 });
 //---------------------------------------------------------------------------------------//
 ipcMain.handle('create',async (event:any, veiculo:any) => {
-  const {chassi, marca, cor} = veiculo
-  const novoVeiculo = new veiculos(chassi, marca, cor)
+  const {modelo,chassi,motor,transmissao,freios,pneus,rodas, cor} = veiculo
+  const novoVeiculo = new veiculos(modelo,chassi,motor,transmissao,freios,pneus,rodas,cor)
   return await new VeiculosRepository().save(novoVeiculo)
 })
 

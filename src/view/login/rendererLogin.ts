@@ -8,7 +8,7 @@ document.getElementById("Acessar").addEventListener("click", async (event: Mouse
     const email = (document.getElementById("email_login") as HTMLInputElement).value;
     const password = (document.getElementById("password_login") as HTMLInputElement).value;
 
-    // Buscar o usuário no banco
+    
     const usuario = await (window as any).bancoAPI.findByEmail(email);
 
     if (!usuario) {
@@ -17,14 +17,14 @@ document.getElementById("Acessar").addEventListener("click", async (event: Mouse
         return;
     }
 
-    // Comparar as senhas
+    
     const valida = await (window as any).bancoAPI.findBySenha({
-        senhaEntrada: password, // Senha fornecida pelo usuário
-        senhaBanco: usuario.senha, // Senha armazenada no banco
+        senhaEntrada: password, 
+        senhaBanco: usuario.senha,
     });
 
     if (!valida) {
-        alert("Credenciais inválidas! Verifique e tente novamente.");
+        // alert("Credenciais inválidas! Verifique e tente novamente.");
         console.log("Credenciais inválidas");
         return;
     }

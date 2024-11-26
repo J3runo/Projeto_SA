@@ -20,11 +20,7 @@ contextBridge.exposeInMainWorld('navigateAPI',{
     irPaginaLogin:()=> ipcRenderer.send('paginaLogin'),
     irPaginaProducao:()=> ipcRenderer.send('paginaProducao'),
     irPaginaQualidade:()=> ipcRenderer.send('paginaQualidade'),
-    irPaginaEstoque:()=> ipcRenderer.send('paginaEstoque'),
-
-
-
-
+    irPaginaEstoque:()=> ipcRenderer.send('paginaEstoque')
 
 })
 

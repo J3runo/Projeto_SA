@@ -12,8 +12,9 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "paths": {
-      "*": ["*"]
+      "src/*": ["src/*"]
     }
   },
-  "include": ["src/**/*", "veiculoRepository.ts", "src/view/login/rendererPro.ts"]
+  "include": ["src/**/*", "veiculoRepository.ts", "src/rendererPro.ts"]
+
 }
