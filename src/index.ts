@@ -49,8 +49,8 @@ app.on('activate', () => {
 });
 //---------------------------------------------------------------------------------------//
 ipcMain.handle('create',async (event:any, veiculo:any) => {
-  const {modelo,chassi,motor,transmissao,freios,pneus,rodas, cor} = veiculo
-  const novoVeiculo = new veiculos(modelo,chassi,motor,transmissao,freios,pneus,rodas,cor)
+  const {nome, modelo,chassi,motor,transmissao,freios,pneus,rodas, cor} = veiculo
+  const novoVeiculo = new veiculos(nome, modelo,chassi,motor,transmissao,freios,pneus,rodas,cor)
   return await new VeiculosRepository().save(novoVeiculo)
 })
 
@@ -77,9 +77,9 @@ ipcMain.handle('findByEmail', async (_: any, email: string) => {
 ipcMain.handle('findBySenha', async (_:any, senha:any)=>{ 
   const {senhaEntrada, senhaBanco} = senha
 
-  // compara as senhas
+  
   const isMatch = senhaEntrada === senhaBanco;
-  return isMatch; // Retorna true se forem iguais
+  return isMatch; 
 });
 
 

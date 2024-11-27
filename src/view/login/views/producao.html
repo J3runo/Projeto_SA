@@ -24,6 +24,7 @@
       <table>
         <thead>
           <tr>
+            <th>Nome</th>
             <th>Modelo</th>
             <th>Chassi</th>
             <th>Motor</th>
@@ -45,13 +46,18 @@
     <section id="cadastro">
       <h2>Cadastrar Novo Veículo</h2>
       <form id="formulario-cadastro">
+
+
+        <label for="Nome">Nome:</label>
+        <input type="text" id="Nome">
+
+
         <label for="modelo">Modelo:</label>
         <select id="modelo" name="modelo" required>
           <option value="" disabled selected>Selecione o modelo</option>
           <option value="SUV">SUV</option>
           <option value="Sedan">Sedan</option>
           <option value="Hatch">Hatch</option>
-          <option value="Caminhão">Caminhão</option>
         </select>
 
         <label for="chassi">Chassi:</label>

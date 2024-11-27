@@ -24,8 +24,8 @@ export default class VeiculosRepository {
 
         try {
             this.connection.connect()
-            const sql = 'INSERT INTO veiculos (modelo, chassi, motor, transmissao, freios, pneus, rodas, cor) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)'
-            const values = [veiculo.getModelo(), veiculo.getChassi(),veiculo.getMotor(),veiculo.getTranmissao(),veiculo.getFreios(),veiculo.getPneus(),veiculo.getRodas(), veiculo.getCor()]
+            const sql = 'INSERT INTO veiculos (nome, modelo, chassi, motor, transmissao, freios, pneus, rodas, cor) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)'
+            const values = [veiculo.getNome(),veiculo.getModelo(), veiculo.getChassi(),veiculo.getMotor(),veiculo.getTranmissao(),veiculo.getFreios(),veiculo.getPneus(),veiculo.getRodas(), veiculo.getCor()]
 
             await this.connection.query(sql, values)
 

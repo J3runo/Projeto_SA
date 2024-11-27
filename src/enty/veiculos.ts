@@ -3,6 +3,7 @@
 export default class veiculos{
 
     private id:string
+    private nome:string
     private modelo:string
     private chassi:string
     private motor:string
@@ -14,9 +15,10 @@ export default class veiculos{
     
 
 
-constructor(modelo:string, chassi:string,motor:string,transmissao:string,freios:string,pneus:string,rodas:string, cor:string, id?: string){
+constructor(nome:string, modelo:string, chassi:string,motor:string,transmissao:string,freios:string,pneus:string,rodas:string, cor:string, id?: string){
 
     this.id = id
+    this.nome = nome
     this.modelo = modelo
     this.chassi = chassi
     this.motor = motor
@@ -31,6 +33,10 @@ constructor(modelo:string, chassi:string,motor:string,transmissao:string,freios:
 public getId(){
      return this.id
  }
+
+public getNome(){
+    return this.nome
+}
 
 public getModelo(){
     return this.modelo

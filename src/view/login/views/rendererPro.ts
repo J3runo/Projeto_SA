@@ -7,6 +7,7 @@ let listaVeiculos: Veiculos[] = [];
 document.getElementById('formulario-cadastro')?.addEventListener('submit', async (event: MouseEvent) => {
     event.preventDefault();
 
+    const nome = (document.getElementById('Nome') as HTMLInputElement).value;
     const modelo = (document.getElementById('modelo') as HTMLInputElement).value;
     const chassi = (document.getElementById('chassi') as HTMLInputElement).value;
     const motor = (document.getElementById('motor') as HTMLInputElement).value;
@@ -16,7 +17,7 @@ document.getElementById('formulario-cadastro')?.addEventListener('submit', async
     const rodas = (document.getElementById('rodas') as HTMLInputElement).value;
     const cor = (document.getElementById('cor') as HTMLInputElement).value;
 
-    const novoVeiculo = new Veiculos(modelo, chassi, motor, transmissao, freios, pneus, rodas, cor);
+    const novoVeiculo = new Veiculos(nome, modelo, chassi, motor, transmissao, freios, pneus, rodas, cor);
     listaVeiculos.push(novoVeiculo);
 
     
@@ -27,6 +28,7 @@ document.getElementById('formulario-cadastro')?.addEventListener('submit', async
     if (tabela) {
         const novaLinha = document.createElement('tr');
         novaLinha.innerHTML = `
+        <td>${nome}</td>
         <td>${modelo}</td>
         <td>${chassi}</td>
         <td>${motor}</td>
@@ -47,6 +49,7 @@ document.getElementById('lista-veiculos')?.addEventListener('click', async (even
     const veiculosBanco = await (window as any).bancoAPI.findAll();
     listaVeiculos = veiculosBanco.map((veiculo: any) => 
         new Veiculos(
+            veiculo.nome,
             veiculo.modelo,
             veiculo.chassi,
             veiculo.motor,
@@ -66,6 +69,7 @@ document.getElementById('lista-veiculos')?.addEventListener('click', async (even
                     
                     const novaLinha = document.createElement('tr');
                     novaLinha.innerHTML = `
+                    <td>${veiculo.getNome()}</td>
                     <td>${veiculo.getModelo()}</td>
                     <td>${veiculo.getChassi()}</td>
                     <td>${veiculo.getMotor()}</td>

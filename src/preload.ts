@@ -11,7 +11,9 @@ contextBridge.exposeInMainWorld('bancoAPI',{
     deletarVeiculo: async (id:string) => await ipcRenderer.invoke('deletarVeiculo', id),
     createUsuario: async (usuario: usuarios) => await ipcRenderer.invoke('createUsuario', usuario),
     findByEmail: async (email: string) => await ipcRenderer.invoke('findByEmail', email),
-    findBySenha: async(senha:string)=> await ipcRenderer.invoke('findBySenha', senha)
+    findBySenha: async(senha:string)=> await ipcRenderer.invoke('findBySenha', senha),
+    findByName: async(nome:string)=> await ipcRenderer.invoke('findByName', nome),
+
 })
 
 contextBridge.exposeInMainWorld('navigateAPI',{
