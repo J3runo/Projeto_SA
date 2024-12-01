@@ -3,6 +3,8 @@ import UsuarioRepository from './repository/UsuarioRepository';
 import Usuario from './enty/usuarios';
 import VeiculosRepository from './repository/VeiculosRepository';
 import veiculos from './enty/veiculos';
+import ProdutosRepository from './repository/ProdutosRepository';
+import Produtos from './enty/produtos';
 
 
 
@@ -25,10 +27,9 @@ const createWindow = (): void => {
       preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
     },
   });
-
+  mainWindow.maximize()
   mainWindow.loadURL('http://localhost:3000/login');
 
-  //mainWindow.webContents.openDevTools();
 };
 
 
@@ -46,7 +47,9 @@ app.on('activate', () => {
   if (BrowserWindow.getAllWindows().length === 0) {
     createWindow();
   }
-});
+})
+
+
 //---------------------------------------------------------------------------------------//
 ipcMain.handle('create',async (event:any, veiculo:any) => {
   const {nome, modelo,chassi,motor,transmissao,freios,pneus,rodas, cor} = veiculo
@@ -54,12 +57,24 @@ ipcMain.handle('create',async (event:any, veiculo:any) => {
   return await new VeiculosRepository().save(novoVeiculo)
 })
 
+ipcMain.handle('addProdutos',async (event:any, produtos:any) => {
+  const {nome, marca,fornecedor,quantidade} = produtos;
+  const novoProduto = new Produtos (nome, marca, fornecedor, quantidade);
+   await new ProdutosRepository().save(novoProduto)
+  
+})
+
+
 ipcMain.handle('findAll', async ()=>{
  return await new VeiculosRepository().findAll();
 })
 
-ipcMain.handle('findById', async (_:any, id: any)=>{
-  return await new VeiculosRepository().findById(id)
+ipcMain.handle('findAllProdutos', async ()=>{
+ return await new ProdutosRepository().findAllProdutos();
+})
+
+ipcMain.handle('updateStatus', async (_:any, id: any)=>{
+  return await new VeiculosRepository().updateStatus(id)
 })
 
 
@@ -74,15 +89,20 @@ ipcMain.handle('findByEmail', async (_: any, email: string) => {
   return await new UsuarioRepository().findByEmail(email);
 })
 
-ipcMain.handle('findBySenha', async (_:any, senha:any)=>{ 
-  const {senhaEntrada, senhaBanco} = senha
+ipcMain.handle('findBySenha', async (_: any, senha: any) => { 
+  const { senhaEntrada, senhaBanco } = senha;
 
-  
+  // Certifique-se de que ambas as senhas foram fornecidas
+  if (!senhaEntrada || !senhaBanco) {
+    alert("Ambas as senhas devem ser fornecidas.");
+  }
+
+  // Comparação das senhas
   const isMatch = senhaEntrada === senhaBanco;
   return isMatch; 
 });
 
-
+//--------------------------------------------------------//
 ipcMain.on('pagina-home', ()=>{
   mainWindow.loadURL('http://localhost:3000/main_window')
 })

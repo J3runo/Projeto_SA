@@ -1,20 +1,20 @@
-export default class produtos{
+export default class Produtos{
 
     private id:string
     private nome:string
-    private quantidade:number
-    private descricao:string
+    private marca:string
     private fornecedor:string
+    private quantidade:number
    
 
 
-constructor( nome:string,quantidade:number,descricao:string, fornecedor:string, id?:string){
+constructor( nome:string,marca:string, fornecedor:string,quantidade:number, id?:string){
  
     this.id = id === undefined ? undefined : id
     this.nome = nome
-    this.quantidade = quantidade
-    this.descricao = descricao
+    this.marca = marca
     this.fornecedor = fornecedor
+    this.quantidade = quantidade
     
 
 }
@@ -27,15 +27,15 @@ public getNome(){
     return this.nome
 }
 
-public getQuantidade(){
-    return this.quantidade
-}
-
-public getDescricao(){
-    return this.descricao
+public getMarca(){
+    return this.marca
 }
 
 public getFornecedor(){
     return this.fornecedor
+}
+
+public getQuantidade(){
+    return this.quantidade
 }
 }

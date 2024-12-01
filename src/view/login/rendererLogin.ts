@@ -9,7 +9,7 @@ document.getElementById("Acessar").addEventListener("click", async (event: Mouse
     const password = (document.getElementById("password_login") as HTMLInputElement).value;
 
     
-    const usuario = await (window as any).bancoAPI.findByEmail(email);
+    const usuario = await (window as any).buscaAPI.findByEmail(email);
 
     if (!usuario) {
         alert("Usuário não encontrado!");
@@ -18,7 +18,7 @@ document.getElementById("Acessar").addEventListener("click", async (event: Mouse
     }
 
     
-    const valida = await (window as any).bancoAPI.findBySenha({
+    const valida = await (window as any).buscaAPI.findBySenha({
         senhaEntrada: password, 
         senhaBanco: usuario.senha,
     });
@@ -30,7 +30,7 @@ document.getElementById("Acessar").addEventListener("click", async (event: Mouse
     }
 
     console.log("Usuário autenticado");
-    alert("Login realizado com sucesso!");
+    // alert("Login realizado com sucesso!");
     (window as any).navigateAPI.irPaginaHome();
 });
 

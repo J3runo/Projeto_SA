@@ -1,28 +1,12 @@
-/* Atualização de estilo para o cadastro de estoque */
-
-/* Sidebar ativa */
-.menu-list li {
-    padding: 10px 0;
-    cursor: pointer;
-    border-bottom: 1px solid #34495e;
-    color: #ecf0f1;
-}
-
-.menu-list li.active {
-    background-color: #34495e;
-    font-weight: bold;
-}
-
-/* Formulário de estoque */
-.stock-form {
-    margin-top: 20px;
-}
-
 .stock-form fieldset {
-    border: 1px solid #ccc;
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 20px;
+    flex-direction: row;
+    height: 520px;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+
 }
 
 .stock-form legend {
@@ -46,6 +30,51 @@
     border-radius: 5px;
     font-size: 14px;
 }
+
+#entradas {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+table {
+    width: 700px;
+    border-collapse: collapse;
+    margin: 10px auto;
+}
+
+table th,
+table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+table th {
+    background: #444;
+    color: #fff;
+    text-align: center;
+    margin-right: 10px;
+}
+
+h1,
+legend,
+h2 {
+    text-align: center;
+}
+
+#produtos {
+    margin-left: auto;
+    margin-right: 60px;
+    border: 2px solid black;
+    max-height: 450px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #f9f9f9;
+    display: flexbox;
+}
+
 
 .button-group {
     display: flex;

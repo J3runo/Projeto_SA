@@ -56,7 +56,7 @@ body {
 
 #pizza {
   height: 720px;
-  background-color: #575757;
+  /* background-color: #575757; */
   color: white;
   padding: 20px;
   display: grid;

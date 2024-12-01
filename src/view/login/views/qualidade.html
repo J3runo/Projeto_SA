@@ -4,51 +4,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Controle de Qualidade de Veículos</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Cadastro de Estoque</title>
 </head>
 
 <body>
     <div class="container">
-        <!-- Menu lateral -->
-        <aside class="sidebar">
-            <h2>Veículos</h2>
-            <ul class="vehicle-list">
-                <li id="pagina_inicial">Pagina Inicial</li>
-                <li>Veículo 1</li>
-                <li>Veículo 2</li>
-                <li>Veículo 3</li>
-                <li>Veículo 4</li>
-            </ul>
+        <div class="btn">
+            <button type="button" id="pagina-inicial">Página Inicial</button>
+        </div>
 
-        </aside>
+        <main>
 
-        <!-- Área principal -->
-        <main class="main-content">
-            <h1>Controle de Qualidade</h1>
-            <h2>Veículo Selecionado: <span id="nome-veiculo">Nenhum</span></h2>
+            <section id="veiculos">
+                <h2>Veículos Cadastrados</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>Nome</th>
+                            <th>Modelo</th>
+                            <th>Chassi</th>
+                            <th>Motor</th>
+                            <th>Transmissão</th>
+                            <th>Freios</th>
+                            <th>Pneus</th>
+                            <th>Rodas</th>
+                            <th>Cor</th>
+                            <td class="botao-AP">
+                                <button id="btn-aprovar">Aprovar</button>
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Veículos adicionados aparecerão aqui -->
 
-            <form class="inspection-form">
-                <fieldset>
-                    <legend>Checklist de Componentes</legend>
-                    <label><input type="checkbox"> Chassi</label><br>
-                    <label><input type="checkbox"> Motor</label><br>
-                    <label><input type="checkbox"> Transmissão</label><br>
-                    <label><input type="checkbox"> Freios</label><br>
-                    <label><input type="checkbox"> Pneus</label><br>
-                    <label><input type="checkbox"> Rodas</label><br>
-                    <label><input type="checkbox"> Cor</label>
-                </fieldset>
+                    </tbody>
+                </table>
+            </section>
 
-                <textarea placeholder="Observações" rows="5"></textarea>
-
-                <div class="button-group">
-                    <button type="button" class="btn save">Salvar Resultado</button>
-                    <button type="button" class="btn approve">Aprovar Veículo</button>
-                    <button type="button" class="btn reject">Rejeitar Veículo</button>
-                </div>
-            </form>
-        </main>
     </div>
 </body>
 

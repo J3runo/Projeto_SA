@@ -25,7 +25,7 @@ export default class VeiculosRepository {
         try {
             this.connection.connect()
             const sql = 'INSERT INTO veiculos (nome, modelo, chassi, motor, transmissao, freios, pneus, rodas, cor) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)'
-            const values = [veiculo.getNome(),veiculo.getModelo(), veiculo.getChassi(),veiculo.getMotor(),veiculo.getTranmissao(),veiculo.getFreios(),veiculo.getPneus(),veiculo.getRodas(), veiculo.getCor()]
+            const values = [veiculo.getId(), veiculo.getNome(),veiculo.getModelo(), veiculo.getChassi(),veiculo.getMotor(),veiculo.getTranmissao(),veiculo.getFreios(),veiculo.getPneus(),veiculo.getRodas(), veiculo.getCor()]
 
             await this.connection.query(sql, values)
 
@@ -60,22 +60,23 @@ export default class VeiculosRepository {
         }
     }
 
-    async findById(id: string) {
+    async updateStatus (veiculo: veiculos) {
 
         try {
             this.connection.connect()
-            const sql = 'SELECT * FROM veiculos WHERE id = $1'
-            const resultId = await this.connection.query(sql,[id])
-            return resultId.rows;
+            const sql = 'UPDATE veiculos SET inspecao = true WHERE id = values($1) '
+            const values = [veiculo.getId()]
+
+            await this.connection.query(sql, values)
+
         } catch (error) {
             console.log(error)
-            return []
         } finally {
             this.connection.end()
             this.connection = null;
         }
-        }
 
-
+    }
+    
 
 }

@@ -18,7 +18,7 @@ document.getElementById("cadastrar").addEventListener("click", async (event: Mou
     console.log(nome.value, dataNascimento.value, email.value, password.value, passwordConfirmation.value);
 
     // Verifica se o usuário já existe
-    const usuarioExiste = await (window as any).bancoAPI.findByEmail(email.value);
+    const usuarioExiste = await (window as any).buscaAPI.findByEmail(email.value);
     if (usuarioExiste?.id) {
         alert("Usuário já existe! Tente outro e-mail.");
         console.log("USUÁRIO JÁ EXISTE!!!");
@@ -32,7 +32,7 @@ document.getElementById("cadastrar").addEventListener("click", async (event: Mou
         email: email.value,
         senha: password.value,
     };
-    await (window as any).bancoAPI.createUsuario(usuario);
+    await (window as any).buscaAPI.createUsuario(usuario);
 
     // Exibe um alerta de sucesso
     alert("Usuário cadastrado com sucesso!");
