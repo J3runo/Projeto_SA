@@ -43,42 +43,88 @@ document.getElementById('sair').addEventListener("click", async  (event: MouseEv
   
 })
 
-desenhaGrafico()
+window.onload = async () => {
+  console.log('Página carregada');
+  await totalVeiculos();
+  await desenhaGrafico();
+};
 
+async function totalVeiculos() {
+  try {
+    // Chama a API para buscar os dados
+    const totalVeiculosBanco = await (window as any).buscaAPI.findAllVeiculos();
 
-function desenhaGrafico(){
+    // Acesse os dados retornados (presumindo que são enviados como um array com um objeto contendo as contagens)
+    const total = totalVeiculosBanco[0]?.total_veiculos;
+    const totalAprovado = totalVeiculosBanco[0]?.total_aprovado;
+    const totalReprovado = totalVeiculosBanco[0]?.total_reprovado;
 
-  const teste = document.getElementById('pizza') as HTMLDivElement;
+    console.log(`Total de veículos: ${total}`);
+    console.log(`Aprovados: ${totalAprovado}`);
+    console.log(`Reprovados: ${totalReprovado}`);
 
-const chart = echarts.init(teste)
+    // Atualiza a interface com os valores (opcional)
+    const elementoTotalVeiculos = document.getElementById('id-total-veiculos');
+    if (elementoTotalVeiculos) {
+      elementoTotalVeiculos.textContent = `Total de veículos: ${total}`;
+    }
 
+    const elementoAprovados = document.getElementById('id-total-aprovados');
+    if (elementoAprovados) {
+      elementoAprovados.textContent = `Aprovados: ${totalAprovado}`;
+    }
 
-const option = {
+    const elementoReprovados = document.getElementById('id-total-reprovados');
+    if (elementoReprovados) {
+      elementoReprovados.textContent = `Reprovados: ${totalReprovado}`;
+    }
+
+    // Passa os dados para a função do gráfico
+    return { total, totalAprovado, totalReprovado };
+
+  } catch (error) {
+    console.error('Erro ao buscar o total de veículos:', error);
+  }
+}
+
+async function desenhaGrafico() {
+  const dadosBanco = document.getElementById('pizza') as HTMLDivElement;
+
+  // Busca os dados de totalVeiculos para usar no gráfico
+  const { total, totalAprovado, totalReprovado } = await totalVeiculos();
+
+  // Inicializa o gráfico
+  const chart = echarts.init(dadosBanco);
+
+  // Configura a opção do gráfico com os dados retornados
+  const option = {
     title: {
       text: 'Produção',
-      subtext: 'Veiculos',
-      left: 'center'
+      subtext: 'Veículos',
+      left: 'center',
     },
     tooltip: {
-      trigger: 'item'
+      trigger: 'item',
     },
     legend: {
       orient: 'vertical',
-      left: 'left'
+      left: 'left',
     },
     series: [
       {
-        name: 'Access From',
+        name: 'Veículos',
         type: 'pie',
         radius: '50%',
         data: [
-          { value: 1048, name: 'Aprovados' },
-          { value: 735, name: 'reprovados' },
-          { value: 580, name: 'Produzidos' },
-          { value: 484, name: 'Avaliados' },
+          { value: totalAprovado, name: 'Aprovados' },
+          { value: totalReprovado, name: 'Reprovados' },
+          { value: total, name: 'Produzidos' }
           
-        ]
-      }]
+        ],
+      },
+    ],
   };
-  chart.setOption(option)
+
+  // Aplica a configuração do gráfico
+  chart.setOption(option);
 }

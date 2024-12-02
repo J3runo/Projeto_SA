@@ -25,7 +25,7 @@ document.getElementById('salvar')?.addEventListener('click', async (event: Mouse
     const quantidade = parseInt((document.getElementById('quantidade-item') as HTMLInputElement).value);
 
      
-    if (!nome || !marca || !fornecedor || isNaN(quantidade) || quantidade < 0) {
+    if (!nome || !marca || !fornecedor || quantidade || quantidade < 0) {
         alert("Por favor, preencha todos os campos corretamente.");
         return;
     }
@@ -43,8 +43,6 @@ document.getElementById('salvar')?.addEventListener('click', async (event: Mouse
 
 async function carregarProdutos() {
     const produtosBanco = await (window as any).buscaAPI.findAllProdutos();
-    console.log("Produtos carregados do banco:", produtosBanco);
-
     
     listaProdutos = produtosBanco.map(
         (produto: any) => new Produtos(produto.nome, produto.marca, produto.fornecedor, produto.quantidade)

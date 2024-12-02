@@ -30,6 +30,7 @@ const createWindow = (): void => {
   mainWindow.maximize()
   mainWindow.loadURL('http://localhost:3000/login');
 
+  //mainWindow.webContents.openDevTools();
 };
 
 
@@ -64,9 +65,12 @@ ipcMain.handle('addProdutos',async (event:any, produtos:any) => {
   
 })
 
-
 ipcMain.handle('findAll', async ()=>{
  return await new VeiculosRepository().findAll();
+})
+
+ipcMain.handle('findAllVeiculos', async ()=>{
+ return await new VeiculosRepository().findAllVeiculos();
 })
 
 ipcMain.handle('findAllProdutos', async ()=>{
@@ -76,6 +80,7 @@ ipcMain.handle('findAllProdutos', async ()=>{
 ipcMain.handle('updateStatus', async (_:any, id: any)=>{
   return await new VeiculosRepository().updateStatus(id)
 })
+
 
 
 ipcMain.handle('createUsuario', async (_: any, usuario: any) => {
@@ -91,15 +96,9 @@ ipcMain.handle('findByEmail', async (_: any, email: string) => {
 
 ipcMain.handle('findBySenha', async (_: any, senha: any) => { 
   const { senhaEntrada, senhaBanco } = senha;
-
-  // Certifique-se de que ambas as senhas foram fornecidas
-  if (!senhaEntrada || !senhaBanco) {
-    alert("Ambas as senhas devem ser fornecidas.");
-  }
-
-  // Comparação das senhas
-  const isMatch = senhaEntrada === senhaBanco;
-  return isMatch; 
+  
+ 
+  return senhaEntrada === senhaBanco;
 });
 
 //--------------------------------------------------------//

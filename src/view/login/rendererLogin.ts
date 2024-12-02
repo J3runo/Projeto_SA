@@ -12,7 +12,7 @@ document.getElementById("Acessar").addEventListener("click", async (event: Mouse
     const usuario = await (window as any).buscaAPI.findByEmail(email);
 
     if (!usuario) {
-        alert("Usuário não encontrado!");
+        
         console.log("Usuário não encontrado");
         return;
     }
@@ -23,15 +23,15 @@ document.getElementById("Acessar").addEventListener("click", async (event: Mouse
         senhaBanco: usuario.senha,
     });
 
-    if (!valida) {
-        // alert("Credenciais inválidas! Verifique e tente novamente.");
-        console.log("Credenciais inválidas");
-        return;
+    if (valida) {
+        
+        (window as any).navigateAPI.irPaginaHome();
+        console.log("Usuário autenticado");
     }
-
-    console.log("Usuário autenticado");
-    // alert("Login realizado com sucesso!");
-    (window as any).navigateAPI.irPaginaHome();
+    console.log("Credenciais inválidas");
+    
+    
+    
 });
 
 document.getElementById('btn-cadastre-se').addEventListener('click', async (event: MouseEvent) => {
