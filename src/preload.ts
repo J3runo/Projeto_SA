@@ -7,11 +7,11 @@ import usuarios from "./enty/usuarios";
 contextBridge.exposeInMainWorld('bancoAPI',{
     createVeiculo: async (veiculo:veiculos) => await ipcRenderer.invoke('create', veiculo),
     deletarVeiculo: async (id:string) => await ipcRenderer.invoke('deletarVeiculo', id),
-    createUsuario: async (usuario: usuarios) => await ipcRenderer.invoke('createUsuario', usuario),
     addProdutos: async (produtos:any)=> await ipcRenderer.invoke('addProdutos', produtos),
 })
 
 contextBridge.exposeInMainWorld('buscaAPI',{
+    createUsuario: async (usuario: usuarios) => await ipcRenderer.invoke('createUsuario', usuario),
     updateStatus: async(id:string)=> await ipcRenderer.invoke('updateStatus', id),
     findAll: async()=> await ipcRenderer.invoke('findAll'),
     findById: async (id:string)=> await ipcRenderer.invoke('findById', id),
