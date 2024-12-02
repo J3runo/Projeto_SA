@@ -2,7 +2,6 @@ import { contextBridge, ipcRenderer } from "electron";
 
 import veiculos from './enty/veiculos';
 import usuarios from "./enty/usuarios";
-import VeiculosRepository from "./repository/VeiculosRepository";
 
 
 contextBridge.exposeInMainWorld('bancoAPI',{

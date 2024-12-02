@@ -51,10 +51,10 @@ window.onload = async () => {
 
 async function totalVeiculos() {
   try {
-    // Chama a API para buscar os dados
+    
     const totalVeiculosBanco = await (window as any).buscaAPI.findAllVeiculos();
 
-    // Acesse os dados retornados (presumindo que são enviados como um array com um objeto contendo as contagens)
+    
     const total = totalVeiculosBanco[0]?.total_veiculos;
     const totalAprovado = totalVeiculosBanco[0]?.total_aprovado;
     const totalReprovado = totalVeiculosBanco[0]?.total_reprovado;
@@ -63,7 +63,7 @@ async function totalVeiculos() {
     console.log(`Aprovados: ${totalAprovado}`);
     console.log(`Reprovados: ${totalReprovado}`);
 
-    // Atualiza a interface com os valores (opcional)
+    
     const elementoTotalVeiculos = document.getElementById('id-total-veiculos');
     if (elementoTotalVeiculos) {
       elementoTotalVeiculos.textContent = `Total de veículos: ${total}`;
@@ -79,7 +79,7 @@ async function totalVeiculos() {
       elementoReprovados.textContent = `Reprovados: ${totalReprovado}`;
     }
 
-    // Passa os dados para a função do gráfico
+    
     return { total, totalAprovado, totalReprovado };
 
   } catch (error) {
@@ -90,13 +90,13 @@ async function totalVeiculos() {
 async function desenhaGrafico() {
   const dadosBanco = document.getElementById('pizza') as HTMLDivElement;
 
-  // Busca os dados de totalVeiculos para usar no gráfico
+
   const { total, totalAprovado, totalReprovado } = await totalVeiculos();
 
-  // Inicializa o gráfico
+
   const chart = echarts.init(dadosBanco);
 
-  // Configura a opção do gráfico com os dados retornados
+  
   const option = {
     title: {
       text: 'Produção',
@@ -125,6 +125,6 @@ async function desenhaGrafico() {
     ],
   };
 
-  // Aplica a configuração do gráfico
+
   chart.setOption(option);
 }

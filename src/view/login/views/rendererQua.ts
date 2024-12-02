@@ -2,7 +2,7 @@ import './qualidade.css';
 import './estoque.css';
 import './producao.css';
 import Veiculos from '../../../enty/veiculos';
-import veiculos from '../../../enty/veiculos';
+
 
 let listaVeiculos: Veiculos[] = [];
 
@@ -42,7 +42,7 @@ function atualizarTabela() {
     if (tabela) {
         tabela.innerHTML = ''; 
 
-        listaVeiculos.forEach((veiculo:veiculos) => {
+        listaVeiculos.forEach((veiculo:Veiculos) => {
             const novaLinha = document.createElement('tr');
             novaLinha.innerHTML = `
             <td>${veiculo.getId()}</td>
@@ -91,11 +91,9 @@ document.getElementById('btn-aprovar')?.addEventListener('click', async (event: 
     }
 });
 
-// Função para atualizar o status de um veículo
 async function updateStatus(id: string, status: boolean) {
     try {
         await (window as any).buscaAPI.updateStatus(id, status);
-        // console.log(`Status do veículo com ID ${id} atualizado para ${status}`);
     } catch (error) {
         console.error(`Erro ao atualizar status do veículo com ID ${id}:`, error);
     }
@@ -103,22 +101,6 @@ async function updateStatus(id: string, status: boolean) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Função para navegar para a página inicial
 document.getElementById('pagina-inicial')?.addEventListener('click', async (event: Event) => {
     event.preventDefault();
 

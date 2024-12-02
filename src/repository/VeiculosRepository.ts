@@ -41,14 +41,14 @@ export default class VeiculosRepository {
 
     async updateStatus(id: any) {
         try {
-            // Conecta ao banco de dados
+            
             this.connection.connect();
             console.log('conectou')
-            // Atualiza o status do veículo com o id fornecido
+            
             const sql = 'UPDATE veiculos SET inspecao = true WHERE id = $1';
             const values = [id];
     
-            // Executa a query passando os valores
+            
             await this.connection.query(sql, values);
     
             console.log(`Status do veículo com ID ${id} atualizado para inspecao = true.`);
@@ -56,7 +56,7 @@ export default class VeiculosRepository {
             console.log('Erro ao atualizar o status:', error);
             
         } finally {
-            // Encerra a conexão
+            
             this.connection.end();
             this.connection = null;
         }

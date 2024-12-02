@@ -24,12 +24,7 @@ document.getElementById('salvar')?.addEventListener('click', async (event: Mouse
     const fornecedor = (document.getElementById('fornecedor') as HTMLInputElement).value;
     const quantidade = parseInt((document.getElementById('quantidade-item') as HTMLInputElement).value);
 
-     
-    if (!nome || !marca || !fornecedor || quantidade || quantidade < 0) {
-        alert("Por favor, preencha todos os campos corretamente.");
-        return;
-    }
-
+    
 
     const produto = { nome, marca, fornecedor, quantidade };
 

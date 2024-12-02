@@ -9,7 +9,7 @@ document.getElementById("cadastrar").addEventListener("click", async (event: Mou
     const password = document.getElementById("password") as HTMLInputElement;
     const passwordConfirmation = document.getElementById("password_confimation") as HTMLInputElement;
 
-    // Verifica se as senhas coincidem
+
     if (password.value !== passwordConfirmation.value) {
         alert("As senhas não coincidem! Tente novamente.");
         return;
@@ -17,7 +17,7 @@ document.getElementById("cadastrar").addEventListener("click", async (event: Mou
 
     console.log(nome.value, dataNascimento.value, email.value, password.value, passwordConfirmation.value);
 
-    // Verifica se o usuário já existe
+    
     const usuarioExiste = await (window as any).buscaAPI.findByEmail(email.value);
     if (usuarioExiste?.id) {
         alert("Usuário já existe! Tente outro e-mail.");
@@ -25,7 +25,7 @@ document.getElementById("cadastrar").addEventListener("click", async (event: Mou
         return;
     }
 
-    // Cria o novo usuário
+    
     const usuario = {
         name: nome.value,
         data_nascimento: new Date(dataNascimento.value),
@@ -34,7 +34,7 @@ document.getElementById("cadastrar").addEventListener("click", async (event: Mou
     };
     await (window as any).buscaAPI.createUsuario(usuario);
 
-    // Exibe um alerta de sucesso
+    
     alert("Usuário cadastrado com sucesso!");
     (window as any).navigateAPI.irPaginaLogin()
 });
